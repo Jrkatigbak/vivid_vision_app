@@ -33,13 +33,11 @@
 				<div class="panel-header bg-primary-gradient">
 					<div class="page-inner py-5">
 						<div class="d-flex align-items-left align-items-md-center flex-column flex-md-row">
-							<div>
-								<h2 class="text-white pb-2 fw-bold">Dashboard</h2>
-								<h5 class="text-white op-7 mb-2">Free Bootstrap 4 Admin Dashboard</h5>
-							</div>
-							<div class="ml-md-auto py-2 py-md-0">
-								<a href="#" class="btn btn-white btn-border btn-round mr-2">Manage</a>
-								<a href="#" class="btn btn-secondary btn-round">Add Customer</a>
+							<div class="container">
+								<div>
+									<h2 class="text-white pb-2 fw-bold">Vivid Vision Outline</h2>
+									<h5 class="text-white op-7 mb-2">In the form below, input your information into the blank fields.</h5>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -47,12 +45,61 @@
 				<div class="page-inner mt--5">
 					<div class="row mt--2">
 						<div class="col-md-12">
-							<div class="card full-height">
-								<div class="card-body">
-									<div class="card-title">Overall statistics</div>
-									<div class="card-category">Daily information about statistics in system</div>
-									<div class="d-flex flex-wrap justify-content-around pb-2 pt-4">
-										
+							<div class="container">
+								<div class="card full-height">
+									<div class="card-body">
+										<div class="row px-3 mt-4">
+											
+											<div class="col-md-12 mb-5">
+												<h2 class="text-center fw-bold"><input type="text" > <u>Vivid Vision</u></h2>
+											</div>
+	
+											<!-- Status Field -->
+											<div class="col-md-4">
+												<div class="form-group form-group-default">
+													<label><span class="text-danger">*</span> Status: </label>
+													<select name="is_assign_to_specific_student" id="is_assign_to_specific_student" class="form-control" required>
+														<option value="Live">Live</option>
+														<option value="Draft">Draft</option>
+													</select>
+												</div>
+											</div>
+											<div class="col-md-8"></div>
+	
+											<!-- Owner Field -->
+											<div class="col-md-4">
+												<div class="form-group form-group-default">
+													<label><span class="text-danger">*</span> Owner: </label>
+													<input  type="text" class="form-control" placeholder="" required>
+												</div>
+											</div>
+											<div class="col-md-8"></div>
+	
+											<!-- Last Updated Field  -->
+											<div class="col-md-4">
+												<div class="form-group form-group-default">
+													<label><span class="text-danger">*</span> Last Updated: </label>
+													<input type="date" class="form-control" placeholder="" required>
+												</div>
+											</div>
+											<div class="col-md-8"></div>
+	
+											<div class="col-md-12">
+												<h2 class="text-center fw-bold "><u>Your Vivid Vision</u></h2>
+												<p>
+													<b>Vivid Vision Overview:</b> The following is our Vivid Vision. Creating this vision brings the future into the present, so we have clarity on what we are creating right now and can always take the most strategic and direct steps to make it a reality. This is a detailed overview of what our business will look like, feel like, and act like 3 years from now by
+													<input type="date" >.
+												</p>
+											</div>
+
+											<div class="col-md-12">
+												<p>
+													It's December 31st, <input type="date" >. We're ending the single best year of our company history, and the company is riding a major high. We have just...
+												</p>
+											</div>
+											
+											
+										</div>
 									</div>
 								</div>
 							</div>
