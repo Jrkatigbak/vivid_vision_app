@@ -1,0 +1,7 @@
+.bg{
+    background-image: url("../img/login-bg.jpg");
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover; /* Resize the background image to cover the entire container */
+    box-shadow: inset 0 0 0 2000px rgb(70 146 243 / 93%);
+}
