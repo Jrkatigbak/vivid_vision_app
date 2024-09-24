@@ -46,18 +46,18 @@
 						<div class="col-md-12">
 							<div class="container">
 								<div class="card full-height">
-									<div class="card-body">
+									<div class="card-body status_border">
 										<div class="row px-3 mt-4">
 											
 											<div class="col-md-12">
-												<h2 class="text-center fw-bold mb-4"><input type="text" > <u>Vivid Vision</u></h2>
+												<h1 class="text-center fw-bold mb-4"><input type="text" placeholder="Company Name"> <u>Vivid Vision</u></h1>
 											</div>
 	
 											<!-- Status Field -->
 											<div class="col-md-4">
 												<div class="form-group form-group-default">
 													<label><span class="text-danger">*</span> Status: </label>
-													<select name="is_assign_to_specific_student" id="is_assign_to_specific_student" class="form-control" required>
+													<select name="status" id="status" class="form-control" required>
 														<option value="Live">Live</option>
 														<option value="Draft">Draft</option>
 													</select>
@@ -78,7 +78,7 @@
 											<div class="col-md-4">
 												<div class="form-group form-group-default">
 													<label><span class="text-danger">*</span> Last Updated: </label>
-													<input type="date" class="form-control" placeholder="" required>
+													<input type="date" class="form-control" placeholder="" value ="<?= date('Y-m-d')?>" required>
 												</div>
 											</div>
 											<div class="col-md-8"></div>
@@ -86,8 +86,9 @@
 											<div class="col-md-12">
 												<h1 class="text-center fw-bold mb-4"><u>Your Vivid Vision</u></h1>
 												<p>
-													<b>Vivid Vision Overview:</b> The following is our Vivid Vision. Creating this vision brings the future into the present, so we have clarity on what we are creating right now and can always take the most strategic and direct steps to make it a reality. This is a detailed overview of what our business will look like, feel like, and act like 3 years from now by
-													<input type="date" >.
+													<b>Vivid Vision Overview:</b> 
+													<textarea name="" id="" rows="4" cols="50"  class="form-control" placeholder="Write something about your vivid vision..."></textarea>
+													<input type="date" class="form-control mt-2" style="width:150px" value ="<?= date('Y-m-d')?>">.
 												</p>
 											</div>
 
@@ -95,8 +96,25 @@
 												<p>
 													It's December 31st, <input type="date" >. We're ending the single best year of our company history, and the company is riding a major high. We have just...
 												</p>
+												<div class="form-group form-group-default">
+													<label><span class="text-danger">*</span> Accomplishment 1: </label>
+													<textarea name="" id="" rows="4" cols="50" class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+												</div>
+												<div class="form-group form-group-default">
+													<label><span class="text-danger">*</span> Accomplishment 2: </label>
+													<textarea name="" id="" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+												</div>
+												<div class="form-group form-group-default">
+													<label><span class="text-danger">*</span> Accomplishment 3: </label>
+													<textarea name="" id="" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+												</div>
 											</div>
-											
+											<div class="col-md-12 mt-5">
+												<div class="btn-group">
+													<button class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
+													<button class="btn btn-warning"><i class="far fa-file-pdf"></i> Generate PDF</button>
+												</div>
+											</div>
 											
 										</div>
 									</div>
@@ -149,9 +167,7 @@
 	<!-- Atlantis JS -->
 	<script src="assets/js/atlantis.min.js"></script>
 
-	<!-- Atlantis DEMO methods, don't include it in your project! -->
-	<script src="assets/js/setting-demo.js"></script>
-	<script src="assets/js/demo.js"></script>
+	<script src="assets/js/vivid_vision.js"></script>
 
 </body>
 </html>
