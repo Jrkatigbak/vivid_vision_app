@@ -37,11 +37,20 @@ class Vivid_vision {
     }
 
     public function save($form_data) {
-        $query = "INSERT INTO " . $this->table . " (id_user, logo, company, status, owner, last_update, vivid_mission, date_accomp, date_vivid_mission, accom1, accom2, accom3, wwa1, wwa2, wwa3, wwa4, mission, wwd) 
-        VALUES (:id_user, :logo, :company, :status, :owner, :last_update, :vivid_mission, :date_accomp, :date_vivid_mission, :accom1, :accom2, :accom3, :wwa1, :wwa2, :wwa3, :wwa4, :mission, :wwd)";
+        $into = '';
+        $values = '';
+        foreach($form_data as $key => $value){
+            $into .= $key.','; 
+            $values .= ':'.$key.','; 
+        }
+        $newinto = rtrim($into, ",");
+        $newvalues = rtrim($values, ",");
+        $query = "INSERT INTO " . $this->table . " ($newinto) 
+        VALUES ($newvalues)";
         $stmt = $this->conn->prepare($query);
+        // print_r($form_data);die('x');
 
-        $stmt->bindParam(':id_user', $form_data['id_user']);
+        $stmt->bindParam(':id_user', $_SESSION['id_user']);
         $stmt->bindParam(':logo', $form_data['logo']);
         $stmt->bindParam(':company', $form_data['company']);
         $stmt->bindParam(':status', $form_data['status']);
@@ -59,6 +68,23 @@ class Vivid_vision {
         $stmt->bindParam(':wwa4', $form_data['wwa4']);
         $stmt->bindParam(':mission', $form_data['mission']);
         $stmt->bindParam(':wwd', $form_data['wwd']);
+        $stmt->bindParam(':vv21', $form_data['vv21']);
+        $stmt->bindParam(':vv22', $form_data['vv22']);
+        $stmt->bindParam(':vv23', $form_data['vv23']);
+        $stmt->bindParam(':vv24', $form_data['vv24']);
+        $stmt->bindParam(':vv25', $form_data['vv25']);
+        $stmt->bindParam(':vv26', $form_data['vv26']);
+        $stmt->bindParam(':vv27', $form_data['vv27']);
+        $stmt->bindParam(':vv28', $form_data['vv28']);
+        $stmt->bindParam(':vv29', $form_data['vv29']);
+        $stmt->bindParam(':vv210', $form_data['vv210']);
+        $stmt->bindParam(':vv211', $form_data['vv211']);
+        $stmt->bindParam(':vv212', $form_data['vv212']);
+        $stmt->bindParam(':vv213', $form_data['vv213']);
+        $stmt->bindParam(':vv214', $form_data['vv214']);
+        $stmt->bindParam(':vv215', $form_data['vv215']);
+        $stmt->bindParam(':vv216', $form_data['vv216']);
+        $stmt->bindParam(':vv217', $form_data['vv217']);
 
         if ($stmt->execute()) {
             return [

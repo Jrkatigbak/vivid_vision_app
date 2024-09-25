@@ -74,7 +74,6 @@ if(isset($_GET['id'])){
 											<div class="row px-3 mt-1">
 												
 												<div class="col-md-12 text-center ">
-													<?php?>
 													<img id="imagePreview" src="assets/img/upload/logo/<?php echo isset($row['logo']) ? $row['logo'] : 'default_pic.png' ?>" class="logo-img pulse my-4" alt="">
 													<input hidden type="file" id="imageInput"  name="image" >
 													<h1 class="fw-bold mb-5 mt-4"><u><input type="text" name="company" placeholder="company name" 
@@ -164,6 +163,83 @@ if(isset($_GET['id'])){
 													<h4 class="fw-bold">WHAT WE DO</h4>
 													<p>
 													<textarea name="wwd" id="wwd" rows="4" cols="50"  class="form-control" placeholder="Explain your core products / pillars..." required><?php echo isset($row['wwd']) ? $row['wwd'] : '' ?></textarea>
+													</p>
+												</div>
+
+												
+												<div class="col-md-12 my-5">
+												<hr>
+												</div>
+												
+												<div class="col-md-12 mt-3">
+													<p>Our bread and butter is 
+														<input type="text" name="vv21" class="mt-2" value ="<?php echo isset($row['vv21']) ? $row['vv21'] : '' ?>" placeholder="write something..."> .
+														This is our 
+														<input type="text" name="vv22" class="mt-2" value ="<?php echo isset($row['vv22']) ? $row['vv22'] : '' ?>" placeholder="write something..."> 
+														program designed for 
+														<input type="text" name="vv23" class="mt-2" value ="<?php echo isset($row['vv23']) ? $row['vv23'] : '' ?>" placeholder="write something..."> 
+														We are #1 in the world for what we do in this program because
+														<textarea name="vv24" id="vv24" rows="4" cols="50"  class="form-control" placeholder="Explain your goal/mission..." required><?php echo isset($row['vv24']) ? $row['vv24'] : '' ?></textarea>
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<h4 class="fw-bold">THE DETAILS</h4>
+													<p>
+													We are based in 
+													<input type="text" name="vv25" class="mt-2" value ="<?php echo isset($row['vv25']) ? $row['vv25'] : '' ?>" placeholder="write something...">
+													and have a team all throughout the world. At our headquarters - a modern, clean, open office in 
+													<input type="text" name="vv26" class="mt-2" value ="<?php echo isset($row['vv26']) ? $row['vv26'] : '' ?>" placeholder="write something...">
+													- we have over 
+													<input type="text" name="vv27" class="mt-2" value ="<?php echo isset($row['vv27']) ? $row['vv27'] : '' ?>" placeholder="write something...">
+													of our team including most of the core Leadership team. We also have satellite locations outside of the 
+													<input type="text" name="vv28" class="mt-2" value ="<?php echo isset($row['vv28']) ? $row['vv28'] : '' ?>" placeholder="write something...">, 
+													with our growing global footprint and business opportunities. 
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<p>
+													We do what we do to transform the world for the better, 
+													<input type="text" name="vv29" class="mt-2" value ="<?php echo isset($row['vv29']) ? $row['vv29'] : '' ?>" placeholder="write something...">
+													and a lot more growth to be able to make a bigger impact. 
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<p>
+													This ripple effect of the companies that we work with reaches 
+													<input type="text" name="vv210" class="mt-2" value ="<?php echo isset($row['vv210']) ? $row['vv210'] : '' ?>" placeholder="write something...">
+													 all throughout the world. 
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<h4 class="fw-bold">OUR CORE VALUES</h4>
+													<p>
+													We live by our Core Value of 
+													<input type="text" name="vv211" class="mt-2" value ="<?php echo isset($row['vv211']) ? $row['vv211'] : '' ?>" placeholder="write something...">
+													and attract a world-class type of person to our brand and programs. We protect who we work with and serve at the highest level, and are proud of this impact that the ripple effect is making across the globe.
+													</p>
+
+													<p>
+													We are looked upon as an elite, world-class team and company. We have started winning various awards for our team, our culture, and are known as an elite place to work. We have grown exponentially fast and within 
+													<input type="number" name="vv212" min="1900" max="2099" placeholder="YYYY" value ="<?php echo isset($row['vv212']) ? $row['vv212'] : date('Y') ?>"> 
+													years of operations and have a healthy mix of 
+													<input type="text" name="vv213" class="mt-2" value ="<?php echo isset($row['vv213']) ? $row['vv213'] : '' ?>" placeholder="write something...">
+													setting us up for an even more incredible future.
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-5">
+													<p>
+														Why do we have such a high success rate? Largely in part to our team, but also to our culture; one that is driven by
+														<input type="text" name="vv214" class="mt-2" value ="<?php echo isset($row['vv214']) ? $row['vv214'] : '' ?>" placeholder="write something...">,
+														<input type="text" name="vv215" class="mt-2" value ="<?php echo isset($row['vv215']) ? $row['vv215'] : '' ?>" placeholder="write something...">, and
+														<input type="text" name="vv216" class="mt-2" value ="<?php echo isset($row['vv216']) ? $row['vv216'] : '' ?>" placeholder="write something...">. 
+														 We are the best in the world at 
+														 <input type="text" name="vv217" class="mt-2" value ="<?php echo isset($row['vv217']) ? $row['vv217'] : '' ?>" placeholder="write something...">, 
+														 and these Core Values help us drive consistent, repeatable, and scalable results.
 													</p>
 												</div>
 

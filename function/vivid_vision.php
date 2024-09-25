@@ -66,6 +66,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'wwa4'                  =>  htmlspecialchars(strip_tags($_POST['wwa4'])),
         'mission'               =>  htmlspecialchars(strip_tags($_POST['mission'])),
         'wwd'                   =>  htmlspecialchars(strip_tags($_POST['wwd'])),
+        'vv21'                  =>  htmlspecialchars(strip_tags($_POST['vv21'])),
+        'vv22'                  =>  htmlspecialchars(strip_tags($_POST['vv22'])),
+        'vv23'                  =>  htmlspecialchars(strip_tags($_POST['vv23'])),
+        'vv24'                  =>  htmlspecialchars(strip_tags($_POST['vv24'])),
+        'vv25'                  =>  htmlspecialchars(strip_tags($_POST['vv25'])),
+        'vv26'                  =>  htmlspecialchars(strip_tags($_POST['vv26'])),
+        'vv27'                  =>  htmlspecialchars(strip_tags($_POST['vv27'])),
+        'vv28'                  =>  htmlspecialchars(strip_tags($_POST['vv28'])),
+        'vv29'                  =>  htmlspecialchars(strip_tags($_POST['vv29'])),
+        'vv210'                 =>  htmlspecialchars(strip_tags($_POST['vv210'])),
+        'vv211'                 =>  htmlspecialchars(strip_tags($_POST['vv211'])),
+        'vv212'                 =>  htmlspecialchars(strip_tags($_POST['vv212'])),
+        'vv213'                 =>  htmlspecialchars(strip_tags($_POST['vv213'])),
+        'vv214'                 =>  htmlspecialchars(strip_tags($_POST['vv214'])),
+        'vv215'                 =>  htmlspecialchars(strip_tags($_POST['vv215'])),
+        'vv216'                 =>  htmlspecialchars(strip_tags($_POST['vv216'])),
+        'vv217'                 =>  htmlspecialchars(strip_tags($_POST['vv217'])),
     ];
 
     $result = $vivid_vision->save($form_data);

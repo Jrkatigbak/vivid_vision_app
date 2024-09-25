@@ -76,12 +76,58 @@
     <br>
 
     <h4>OUR MISSION</h4>
-    Our BHAG (Big Hairy Audacious Goal) is <b>'.$row['mission'].'</b>
+    <p>Our BHAG (Big Hairy Audacious Goal) is <b>'.$row['mission'].'</b></p>
 
     <br>
 
     <h4>WHAT WE DO</h4>
     '.$row['wwd'].'
+
+    <p>Our bread and butter is <b>'.$row['vv21'].'</b>.  
+    This is our <b>'.$row['vv22'].'</b> program designed for <b>'.$row['vv23'].'</b>. 
+    We are #1 in the world for what we do in this program because <b>'.$row['vv24'].'</b> 
+    </p>
+
+    <br>
+
+    <h4>THE DETAILS</h4>
+    <p>We are based in  <b>'.$row['vv25'].'</b> 
+    and have a team all throughout the world. At our headquarters - a modern, clean, open office in  
+    <b>'.$row['vv26'].'</b> - we have over  
+    <b>'.$row['vv27'].'</b> of our team including most of the core Leadership team. We also have satellite locations outside of the  
+    <b>'.$row['vv28'].'</b>, with our growing global footprint and business opportunities. 
+    </p>
+
+
+    <p>We do what we do to transform the world for the better, 
+    <b>'.$row['vv29'].'</b> and a lot more growth to be able to make a bigger impact. 
+    </p>
+
+    <p>This ripple effect of the companies that we work with reaches 
+    <b>'.$row['vv210'].'</b> all throughout the world. 
+    </p>
+
+    <br>
+
+    <h4>OUR CORE VALUES</h4>
+    <p>We live by our Core Value of 
+    <b>'.$row['vv211'].'</b> and attract a world-class type of person to our brand and programs. We protect who we work with and serve at the highest level, and are proud of this impact that the ripple effect is making across the globe.
+    </p>
+
+    <p>We are looked upon as an elite, world-class team and company. We have started winning various awards for our team, our culture, and are known as an elite place to work. We have grown exponentially fast and within 
+     <b>'.$row['vv212'].'</b> years of operations and have a healthy mix of 
+     <b>'.$row['vv213'].'</b> setting us up for an even more incredible future.
+    </p>
+
+    <p>Why do we have such a high success rate? Largely in part to our team, but also to our culture; one that is driven by 
+        <b>'.$row['vv214'].'</b>, 
+        <b>'.$row['vv215'].'</b>, 
+        and 
+        <b>'.$row['vv216'].'</b>. 
+        We are the best in the world at 
+        <b>'.$row['vv217'].'</b>, and these Core Values help us drive consistent, repeatable, and scalable results.
+    </p>
+
     ';
     // set some text to print
     // $html = <<<EOD
