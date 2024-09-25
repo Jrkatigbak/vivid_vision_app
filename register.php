@@ -33,7 +33,7 @@
 			<p class="subtitle op-7">@2024 Vivid Vision App. All Rights Reserved.</p>
 		</div>
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-white">
-            <form method="POST" action="function/register.php">
+            <form method="POST" action="function/register_function.php">
                 <div class="container container-login container-transparent animated fadeIn">
                     <div class="text-center">
                         <img src="public/assets/img/ercg-logo-mark.svg" style="width:35%;" class="w-full mb-3 center" alt="">
@@ -68,7 +68,7 @@
                         </div>
                         <div class="login-account">
                             <span class="msg">Already have an account?</span>
-                            <a href="login.php" id="show-signup" class="link">Login</a>
+                            <a href="login.php" class="link">Login</a>
                         </div>
                     </div>
 

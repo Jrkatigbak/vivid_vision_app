@@ -1,7 +1,7 @@
 <?php
 include_once 'Db.php';
 
-class User {
+class Register {
     private $conn;
     private $table = "user";
 
@@ -9,7 +9,7 @@ class User {
         $this->conn = $db;
     }
 
-    public function save($logo, $company, $email, $password_hash) {
+    public function register($logo, $company, $email, $password_hash) {
         $query = "INSERT INTO " . $this->table . " (logo, company, email, password) VALUES (:logo, :company, :email, :password)";
         $stmt = $this->conn->prepare($query);
 

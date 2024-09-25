@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 include '../Class/Db.php';
-include '../Class/User.php';
+include '../Class/Register.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -20,8 +20,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $database = new Db();
         $db = $database->connect();
 
-        $user = new User($db);
-        if ($user->save($logo, $company, $email, $password_hash)) {
+        $register = new Register($db);
+        if ($register->register($logo, $company, $email, $password_hash)) {
             $msg = "'Account was registered successfully!','','success'";
         } else {
             $msg = "'Failed to save user.','','error'";

@@ -1,10 +1,10 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Vivid Vision Outline</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -33,7 +33,7 @@
 			<p class="subtitle op-7">@2024 Vivid Vision App. All Rights Reserved.</p>
 		</div>
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-white">
-            <form method="POST" action="roguin/roguin">
+            <form method="POST" action="function/login_function.php">
                 <div class="container container-login container-transparent animated fadeIn">
                     <div class="text-center">
                     <img src="public/assets/img/ercg-logo-mark.svg" style="width:35%;" class="w-full mb-3 center" alt="">
@@ -59,7 +59,7 @@
                         </div>
                         <div class="login-account">
                             <span class="msg">Don't have an account yet ?</span>
-                            <a href="register.php" id="show-signup" class="link">Sign Up</a>
+                            <a href="register.php" class="link">Sign Up</a>
                         </div>
                     </div>
 
@@ -73,7 +73,10 @@
 	<script src="assets/js/core/jquery.3.2.1.min.js"></script>
 	<script src="assets/js/core/popper.min.js"></script>
 	<script src="assets/js/core/bootstrap.min.js"></script>
+	<!-- Sweet Alert -->
+	<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 	<!-- Atlantis JS -->
 	<script src="assets/js/atlantis.min.js"></script>
+	<?php include('function/notification.php'); ?>
 </body>
 </html>
