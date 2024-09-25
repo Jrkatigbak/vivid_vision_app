@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if(isset($_SESSION['id_user'])){
+	header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,21 +40,13 @@
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-white">
             <form method="POST" action="function/register_function.php">
                 <div class="container container-login container-transparent animated fadeIn">
-                    <div class="text-center">
-                        <img src="public/assets/img/ercg-logo-mark.svg" style="width:35%;" class="w-full mb-3 center" alt="">
-                    </div>
-                    <h3 class="text-center">Sign Up</h3>
+                    <h3 class="text-center">Create new Account</h3>
 
                     <div class="login-form">
                         <div class="form-group">
-                            <label for="logo" class="placeholder"><b>Company Logo</b></label>
-                            <input type="file" name="logo" class="form-control"  required>
+                            <label for="name" class="placeholder"><b>Name</b></label>
+                            <input type="text" name="name" class="form-control" placeholder="Name" required>
                         </div>
-                        <div class="form-group">
-                            <label for="company name" class="placeholder"><b>Company Name</b></label>
-                            <input type="text" name="company" class="form-control" placeholder="Company Name" required>
-                        </div>
-                        
                         <div class="form-group">
                             <label for="email" class="placeholder"><b>Email</b></label>
                             <input type="text" name="email" class="form-control" placeholder="Email" required>
@@ -64,7 +61,7 @@
                             </div>
                         </div>
                         <div class="form-group form-action-d-flex">
-                            <button type="submit"  class="btn btn-primary btn-block btn-block float-right mt-sm-0 fw-bold">Sign In</button>
+                            <button type="submit"  class="btn btn-primary btn-block btn-block float-right mt-sm-0 fw-bold">Sign Up</button>
                         </div>
                         <div class="login-account">
                             <span class="msg">Already have an account?</span>

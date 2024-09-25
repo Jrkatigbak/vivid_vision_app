@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+session_start(); 
+if(isset($_SESSION['id_user'])){
+	header('location: index.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,7 +60,7 @@
                             </div>
                         </div>
                         <div class="form-group form-action-d-flex">
-                            <button type="submit"  class="btn btn-primary btn-block btn-block float-right mt-sm-0 fw-bold">Sign In</button>
+                            <button type="submit"  class="btn btn-primary btn-block btn-block float-right mt-sm-0 fw-bold">Login</button>
                         </div>
                         <div class="login-account">
                             <span class="msg">Don't have an account yet ?</span>
