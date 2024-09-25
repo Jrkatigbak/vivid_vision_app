@@ -1,3 +1,8 @@
+<?php session_start();
+if(!isset($_SESSION['id_user'])){
+	header('location: login.php');
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,86 +47,89 @@
 					</div>
 				</div>
 				<div class="page-inner mt--5">
-					<div class="row mt--2">
-						<div class="col-md-12">
-							<div class="container">
-								<div class="card full-height">
-									<div class="card-body status_border">
-										<div class="row px-3 mt-4">
-											
-											<div class="col-md-12">
-												<h1 class="text-center fw-bold mb-4"><input type="text" placeholder="Company Name"> <u>Vivid Vision</u></h1>
-											</div>
-	
-											<!-- Status Field -->
-											<div class="col-md-4">
-												<div class="form-group form-group-default">
-													<label><span class="text-danger">*</span> Status: </label>
-													<select name="status" id="status" class="form-control" required>
-														<option value="Live">Live</option>
-														<option value="Draft">Draft</option>
-													</select>
+					<form method="POST" action="function/vivid_vision.php">
+						<div class="row mt--2">
+							<div class="col-md-12">
+								<div class="container">
+									<div class="card full-height">
+										<div class="card-body status_border">
+											<div class="row px-3 mt-1">
+												
+												<div class="col-md-12 text-center ">
+													<img src="assets/img/upload/logo/default_pic.png" class="logo-img mb-4" alt="">
+													<h1 class="fw-bold mb-5"><u><?= $_SESSION['company'] ?> Vivid Vision</u></h1>
 												</div>
-											</div>
-											<div class="col-md-8"></div>
-	
-											<!-- Owner Field -->
-											<div class="col-md-4">
-												<div class="form-group form-group-default">
-													<label><span class="text-danger">*</span> Owner: </label>
-													<input  type="text" class="form-control" placeholder="" required>
+		
+												<!-- Status Field -->
+												<div class="col-md-4">
+													<div class="form-group form-group-default">
+														<label><span class="text-danger">*</span> Status: </label>
+														<select name="status" id="status" class="form-control" required>
+															<option value="Live">Live</option>
+															<option value="Draft">Draft</option>
+														</select>
+													</div>
 												</div>
-											</div>
-											<div class="col-md-8"></div>
-	
-											<!-- Last Updated Field  -->
-											<div class="col-md-4">
-												<div class="form-group form-group-default">
-													<label><span class="text-danger">*</span> Last Updated: </label>
-													<input type="date" class="form-control" placeholder="" value ="<?= date('Y-m-d')?>" required>
+												<div class="col-md-8"></div>
+		
+												<!-- Owner Field -->
+												<div class="col-md-4">
+													<div class="form-group form-group-default">
+														<label><span class="text-danger">*</span> Owner: </label>
+														<input  type="text" name="owner" id="owner" class="form-control" placeholder="Owner Name" required>
+													</div>
 												</div>
-											</div>
-											<div class="col-md-8"></div>
-	
-											<div class="col-md-12">
-												<h1 class="text-center fw-bold mb-4"><u>Your Vivid Vision</u></h1>
-												<p>
-													<b>Vivid Vision Overview:</b> 
-													<textarea name="" id="" rows="4" cols="50"  class="form-control" placeholder="Write something about your vivid vision..."></textarea>
-													<input type="date" class="form-control mt-2" style="width:150px" value ="<?= date('Y-m-d')?>">.
-												</p>
-											</div>
+												<div class="col-md-8"></div>
+		
+												<!-- Last Updated Field  -->
+												<div class="col-md-4">
+													<div class="form-group form-group-default">
+														<label><span class="text-danger">*</span> Last Updated: </label>
+														<input type="date" name="last_update" id="last_update" class="form-control" placeholder="" value ="<?= date('Y-m-d')?>" required>
+													</div>
+												</div>
+												<div class="col-md-8"></div>
+		
+												<div class="col-md-12">
+													<h1 class="text-center fw-bold mb-4"><u>Your Vivid Vision</u></h1>
+													<p>
+														<b>Vivid Vision Overview:</b> 
+														<textarea name="vivid_mission" id="vivid_mission" rows="4" cols="50"  class="form-control" placeholder="Write something about your vivid vision..."></textarea>
+														<input type="date" name="date_vivid_mission" id="date_vivid_mission" class="form-control mt-2" style="width:150px" value ="<?= date('Y-m-d')?>">.
+													</p>
+												</div>
 
-											<div class="col-md-12">
-												<p>
-													It's December 31st, <input type="date" >. We're ending the single best year of our company history, and the company is riding a major high. We have just...
-												</p>
-												<div class="form-group form-group-default">
-													<label><span class="text-danger">*</span> Accomplishment 1: </label>
-													<textarea name="" id="" rows="4" cols="50" class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+												<div class="col-md-12">
+													<p>
+														It's December 31st, <input type="date" name="date_accomp" id="date_accomp" value="<?= date('Y-m-d')?>">. We're ending the single best year of our company history, and the company is riding a major high. We have just...
+													</p>
+													<div class="form-group form-group-default">
+														<label><span class="text-danger">*</span> Accomplishment 1: </label>
+														<textarea name="accom1" id="accom1" rows="4" cols="50" class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+													</div>
+													<div class="form-group form-group-default">
+														<label><span class="text-danger">*</span> Accomplishment 2: </label>
+														<textarea name="accom2" id="accom2" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+													</div>
+													<div class="form-group form-group-default">
+														<label><span class="text-danger">*</span> Accomplishment 3: </label>
+														<textarea name="accom3" id="accom3" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+													</div>
 												</div>
-												<div class="form-group form-group-default">
-													<label><span class="text-danger">*</span> Accomplishment 2: </label>
-													<textarea name="" id="" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+												<div class="col-md-12 mt-5">
+													<div class="btn-group">
+														<button class="btn btn-primary"><i class="fa fa-save"></i> Save this Version</button>
+														<button type="submit" class="btn btn-warning"><i class="far fa-file-pdf"></i> Export as PDF</button>
+													</div>
 												</div>
-												<div class="form-group form-group-default">
-													<label><span class="text-danger">*</span> Accomplishment 3: </label>
-													<textarea name="" id="" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
-												</div>
+												
 											</div>
-											<div class="col-md-12 mt-5">
-												<div class="btn-group">
-													<button class="btn btn-primary"><i class="fa fa-save"></i> Update</button>
-													<button class="btn btn-warning"><i class="far fa-file-pdf"></i> Generate PDF</button>
-												</div>
-											</div>
-											
 										</div>
 									</div>
 								</div>
 							</div>
 						</div>
-					</div>
+					</form>
 				</div>
 			</div>
 			<footer class="footer">
@@ -158,6 +166,6 @@
 	<script src="assets/js/atlantis.min.js"></script>
 
 	<script src="assets/js/vivid_vision.js"></script>
-
+	<?php include('function/notification.php'); ?>
 </body>
 </html>

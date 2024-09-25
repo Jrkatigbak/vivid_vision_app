@@ -31,10 +31,23 @@ class Login {
 
             // Verify the password using password_verify() (assuming password is hashed)
             if (password_verify($password, $user['password'])) {
+
+                // Data to be set as session variables
+                $session_data = array(
+                    'id_user' => $user['id'],
+                    'logo' => $user['logo'],
+                    'company' => $user['company'],
+                    'email' => $user['email']
+                );
+                // Loop through the data and set session variables in bulk
+                foreach ($session_data as $key => $value) {
+                    $_SESSION[$key] = $value;
+                }
+
                 // Login successful
                 return [
                     'status' => true,
-                    'message' => "'Login Successfuly','Welcome','success'"
+                    'message' => "'Login Successfully','Welcome to Vivid Vision App','success'"
                 ];
             } else {
                 // Invalid password

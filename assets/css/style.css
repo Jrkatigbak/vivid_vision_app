@@ -6,3 +6,7 @@ p {
     border-left: 4px solid #35cb35;
     border-radius: 5px;
 }
+
+.logo-img{
+    width: 20%;
+}

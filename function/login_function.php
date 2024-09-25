@@ -19,13 +19,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Verify login
     $result = $login->verify($email, $password);
-
+    $_SESSION['flash_message'] = $result['message'];
     if ($result['status']) {
         // Successful login
         header("Location: ../index.php");
     } else {
         // Invalid login
-        $_SESSION['flash_message'] = $result['message'];
         header("Location: ../login.php");
     }
 } 
