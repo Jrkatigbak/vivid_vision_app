@@ -243,6 +243,42 @@ if(isset($_GET['id'])){
 													</p>
 												</div>
 
+												<div class="col-md-12 my-5">
+												<hr>
+												</div>
+
+												<div class="col-md-12">
+													<p>
+													Our company is now doing $<input type="text" name="vv31" class="mt-2" value ="<?php echo isset($row['vv31']) ? $row['vv31'] : '' ?>" placeholder="write something...">
+													per month in revenue, and we're set to chase some even more massive growth within 
+													<input type="text" name="vv32" class="mt-2" value ="<?php echo isset($row['vv32']) ? $row['vv32'] : '' ?>" placeholder="write something...">
+													in the coming year ahead.
+													</p>
+
+													<br>
+													<p>
+													We are on a mission to <input type="text" name="vv33" class="mt-2" value ="<?php echo isset($row['vv33']) ? $row['vv33'] : '' ?>" placeholder="write something..."> and are well on our way! 
+													</p>
+
+													<br>
+													<p><b>The Core Values we live and breathe every day:</b> </p>
+													• <input type="text" name="vv34" class="mt-2" value ="<?php echo isset($row['vv34']) ? $row['vv34'] : '' ?>" placeholder="write something..."> <br>
+													• <input type="text" name="vv35" class="mt-2" value ="<?php echo isset($row['vv35']) ? $row['vv35'] : '' ?>" placeholder="write something..."> <br>
+													• <input type="text" name="vv36" class="mt-2" value ="<?php echo isset($row['vv36']) ? $row['vv36'] : '' ?>" placeholder="write something..."> <br>
+													• <input type="text" name="vv37" class="mt-2" value ="<?php echo isset($row['vv37']) ? $row['vv37'] : '' ?>" placeholder="write something..."> <br>
+													
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<br>
+													<h4 class="fw-bold">OUR ELITE TEAM</h4>
+													<p>
+													Our team is 
+													<input type="text" name="vv38" class="mt-2" value ="<?php echo isset($row['vv38']) ? $row['vv38'] : '' ?>" placeholder="tell something about your team...">
+													We move fast, are bold, have crazy high standards, are hungry and addicted to growth and learning, and enjoy what we do. We thrive on growth, learning, and love the opportunity to serve this mission together.
+													</p>
+												</div>
+
 												<div class="col-md-12 mt-5">
 													<div class="btn-group">
 														<button type="submit" id="btnSave" class="btn btn-primary"><i class="far fa-file-pdf"></i> Save and Export as PDF</button>

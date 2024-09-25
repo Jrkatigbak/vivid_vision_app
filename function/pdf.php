@@ -21,7 +21,7 @@
     if(!isset($row['status']) || $id == ''){ 
         header('location: ../index.php'); 
     } 
-    
+
 
 
     // create new PDF document
@@ -128,6 +128,23 @@
         <b>'.$row['vv217'].'</b>, and these Core Values help us drive consistent, repeatable, and scalable results.
     </p>
 
+    <p>Our company is now doing  $<b>'.$row['vv31'].'</b> per month in revenue, and were set to chase some even more massive growth within 
+    <b>'.$row['vv32'].'</b> in the coming year ahead.</p>
+
+    <p>We are on a mission to  <b>'.$row['vv33'].'</b> and are well on our way!</p>
+
+    <br>
+    <h4>The Core Values we live and breathe every day:</h4>
+    <ul>
+        <li><b>'.$row['vv34'].'</b><li>
+        <li><b>'.$row['vv35'].'</b><li>
+        <li><b>'.$row['vv36'].'</b><li>
+        <li><b>'.$row['vv37'].'</b><li>
+    </ul>
+
+    <br>
+    <h4>OUR ELITE TEAM</h4>
+    <p>Our team is <b>'.$row['vv38'].'</b> We move fast, are bold, have crazy high standards, are hungry and addicted to growth and learning, and enjoy what we do. We thrive on growth, learning, and love the opportunity to serve this mission together.</p>
     ';
     // set some text to print
     // $html = <<<EOD

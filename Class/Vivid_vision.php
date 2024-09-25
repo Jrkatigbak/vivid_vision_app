@@ -85,6 +85,14 @@ class Vivid_vision {
         $stmt->bindParam(':vv215', $form_data['vv215']);
         $stmt->bindParam(':vv216', $form_data['vv216']);
         $stmt->bindParam(':vv217', $form_data['vv217']);
+        $stmt->bindParam(':vv31', $form_data['vv31']);
+        $stmt->bindParam(':vv32', $form_data['vv32']);
+        $stmt->bindParam(':vv33', $form_data['vv33']);
+        $stmt->bindParam(':vv34', $form_data['vv34']);
+        $stmt->bindParam(':vv35', $form_data['vv35']);
+        $stmt->bindParam(':vv36', $form_data['vv36']);
+        $stmt->bindParam(':vv37', $form_data['vv37']);
+        $stmt->bindParam(':vv38', $form_data['vv38']);
 
         if ($stmt->execute()) {
             return [

@@ -83,6 +83,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'vv215'                 =>  htmlspecialchars(strip_tags($_POST['vv215'])),
         'vv216'                 =>  htmlspecialchars(strip_tags($_POST['vv216'])),
         'vv217'                 =>  htmlspecialchars(strip_tags($_POST['vv217'])),
+        'vv31'                 =>  htmlspecialchars(strip_tags($_POST['vv31'])),
+        'vv32'                 =>  htmlspecialchars(strip_tags($_POST['vv32'])),
+        'vv33'                 =>  htmlspecialchars(strip_tags($_POST['vv33'])),
+        'vv34'                 =>  htmlspecialchars(strip_tags($_POST['vv34'])),
+        'vv35'                 =>  htmlspecialchars(strip_tags($_POST['vv35'])),
+        'vv36'                 =>  htmlspecialchars(strip_tags($_POST['vv36'])),
+        'vv37'                 =>  htmlspecialchars(strip_tags($_POST['vv37'])),
+        'vv38'                 =>  htmlspecialchars(strip_tags($_POST['vv38'])),
     ];
 
     $result = $vivid_vision->save($form_data);
