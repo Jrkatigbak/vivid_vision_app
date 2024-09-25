@@ -1,10 +1,10 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 	<title>Vivid Vision Outline</title>
 	<meta content='width=device-width, initial-scale=1.0, shrink-to-fit=no' name='viewport' />
-	<link rel="icon" href="assets/img/icon.ico" type="image/x-icon"/>
 
 	<!-- Fonts and icons -->
 	<script src="assets/js/plugin/webfont/webfont.min.js"></script>
@@ -33,12 +33,12 @@
 			<p class="subtitle op-7">@2024 Vivid Vision App. All Rights Reserved.</p>
 		</div>
 		<div class="login-aside w-50 d-flex align-items-center justify-content-center bg-white">
-            <form method="POST" action="roguin/roguin">
+            <form method="POST" action="function/register.php">
                 <div class="container container-login container-transparent animated fadeIn">
                     <div class="text-center">
-                    <img src="public/assets/img/ercg-logo-mark.svg" style="width:35%;" class="w-full mb-3 center" alt="">
+                        <img src="public/assets/img/ercg-logo-mark.svg" style="width:35%;" class="w-full mb-3 center" alt="">
                     </div>
-                    <h3 class="text-center">Sign In</h3>
+                    <h3 class="text-center">Sign Up</h3>
 
                     <div class="login-form">
                         <div class="form-group">
@@ -47,11 +47,11 @@
                         </div>
                         <div class="form-group">
                             <label for="company name" class="placeholder"><b>Company Name</b></label>
-                            <input type="text" name="company_name" class="form-control" placeholder="Company Name" required>
+                            <input type="text" name="company" class="form-control" placeholder="Company Name" required>
                         </div>
                         
                         <div class="form-group">
-                            <label for="username" class="placeholder"><b>Email</b></label>
+                            <label for="email" class="placeholder"><b>Email</b></label>
                             <input type="text" name="email" class="form-control" placeholder="Email" required>
                         </div>
                         <div class="form-group">
@@ -65,6 +65,10 @@
                         </div>
                         <div class="form-group form-action-d-flex">
                             <button type="submit"  class="btn btn-primary btn-block btn-block float-right mt-sm-0 fw-bold">Sign In</button>
+                        </div>
+                        <div class="login-account">
+                            <span class="msg">Already have an account?</span>
+                            <a href="login.php" id="show-signup" class="link">Login</a>
                         </div>
                     </div>
 
@@ -82,6 +86,6 @@
 	<script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
 	<!-- Atlantis JS -->
 	<script src="assets/js/atlantis.min.js"></script>
-
+    <?php include('function/notification.php'); ?>
 </body>
 </html>

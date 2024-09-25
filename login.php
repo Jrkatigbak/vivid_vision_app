@@ -59,7 +59,7 @@
                         </div>
                         <div class="login-account">
                             <span class="msg">Don't have an account yet ?</span>
-                            <a href="#" id="show-signup" class="link">Sign Up</a>
+                            <a href="register.php" id="show-signup" class="link">Sign Up</a>
                         </div>
                     </div>
 
