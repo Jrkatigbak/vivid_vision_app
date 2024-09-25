@@ -4,6 +4,7 @@ p {
 
 .status_border {
     border-left: 4px solid #35cb35;
+    border-right: 4px solid #35cb35;
     border-radius: 5px;
 }
 
@@ -18,7 +19,7 @@ input[type=text], input[type=date] , input[type=number] {
 }
 
 input[type=text] {
-    width: 350px;
+    width: 40%;
 }
 
 

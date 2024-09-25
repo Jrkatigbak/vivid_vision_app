@@ -20,6 +20,22 @@ class Vivid_vision {
         return $row;
     }
 
+    public function get_version($id){
+        $query = "SELECT b.* FROM versions a INNER JOIN vivid_vision_1 b ON a.id_vivid = b.id WHERE a.id_vivid = :id ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->bindParam(":id", $id);
+        $stmt->execute();
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $row;
+    }
+
+    public function get_all_versions(){
+        $query = "SELECT * FROM versions WHERE deleted_at = '' AND id_user = $_SESSION[id_user] ORDER BY id desc ";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
+        return $stmt;
+    }
+
     public function save($form_data) {
         $query = "INSERT INTO " . $this->table . " (id_user, logo, company, status, owner, last_update, vivid_mission, date_accomp, date_vivid_mission, accom1, accom2, accom3, wwa1, wwa2, wwa3, wwa4, mission, wwd) 
         VALUES (:id_user, :logo, :company, :status, :owner, :last_update, :vivid_mission, :date_accomp, :date_vivid_mission, :accom1, :accom2, :accom3, :wwa1, :wwa2, :wwa3, :wwa4, :mission, :wwd)";
@@ -52,6 +68,24 @@ class Vivid_vision {
         }
 
         return false;
+    }
+
+    public function save_version($id_vivid){
+        $query = "INSERT INTO versions (id_user, id_vivid)
+        VALUES (:id_user, :id_vivid)";
+        $stmt = $this->conn->prepare($query);
+
+        $stmt->bindParam(':id_user', $_SESSION['id_user']);
+        $stmt->bindParam(':id_vivid', $id_vivid);
+
+        $stmt->execute();
+    }
+
+    public function delete($id){
+        $deleted_at = date('Y-m-d H:i:s');
+        $query = "UPDATE versions set deleted_at = '$deleted_at'  WHERE id =$id";
+        $stmt = $this->conn->prepare($query);
+        $stmt->execute();
     }
 
 }

@@ -3,16 +3,13 @@ session_start();
 include '../Class/Db.php';
 include '../Class/Vivid_vision.php';
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $database = new Db();
     $db = $database->connect();
     $vivid_vision = new Vivid_vision($db);
 
-    /*
-     Get form data
-     converts special characters to HTML entities to prevent XSS attacks
-    */
 
     // Check if file was uploaded
     if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
@@ -46,6 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newFileName = '';
     }
 
+    /*
+     Get form data
+     converts special characters to HTML entities to prevent XSS attacks
+    */
     $form_data = [
         'id_user'               =>  $_SESSION['id_user'],
         'logo'                  =>  $newFileName,
@@ -69,6 +70,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $result = $vivid_vision->save($form_data);
     if ($result['status']) {
+
+        // Save Vivid Version
+        $vivid_vision->save_version($result['id']);
+
+        // Redirect to PDF Copy of the Vivid
         header("Location: pdf.php?id=".$result['id']);
         return false;
     }
