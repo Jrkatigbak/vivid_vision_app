@@ -35,8 +35,7 @@ class Login {
                 // Data to be set as session variables
                 $session_data = array(
                     'id_user' => $user['id'],
-                    'logo' => $user['logo'],
-                    'company' => $user['company'],
+                    'name' => $user['name'],
                     'email' => $user['email']
                 );
                 // Loop through the data and set session variables in bulk

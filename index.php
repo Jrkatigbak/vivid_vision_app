@@ -74,7 +74,8 @@ if(isset($_GET['id'])){
 											<div class="row px-3 mt-1">
 												
 												<div class="col-md-12 text-center ">
-													<img id="imagePreview" src="assets/img/upload/logo/default_pic.png" class="logo-img pulse my-4" alt="">
+													<?php?>
+													<img id="imagePreview" src="assets/img/upload/logo/<?php echo isset($row['logo']) ? $row['logo'] : 'default_pic.png' ?>" class="logo-img pulse my-4" alt="">
 													<input hidden type="file" id="imageInput"  name="image" >
 													<h1 class="fw-bold mb-5 mt-4"><u><input type="text" name="company" placeholder="company name" 
 													value ="<?php echo isset($row['company']) ? $row['company'] : '' ?>"> Vivid Vision</u></h1>
@@ -97,7 +98,7 @@ if(isset($_GET['id'])){
 													<div class="form-group form-group-default">
 														<label><span class="text-danger"></span> Owner: </label>
 														<input  type="text" name="owner" id="owner" class="form-control" placeholder="Owner Name"
-														value ="<?php echo isset($row['owner']) ? $row['owner'] : '' ?>" required>
+														value ="<?php echo isset($row['owner']) ? $row['owner'] : $_SESSION['name'] ?>" required>
 													</div>
 												</div>
 												<div class="col-md-8"></div>
