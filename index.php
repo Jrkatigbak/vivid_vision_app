@@ -1,4 +1,5 @@
-<?php session_start();
+<?php 
+session_start();
 if(!isset($_SESSION['id_user'])){
 	header('location: login.php');
 }
@@ -47,7 +48,7 @@ if(!isset($_SESSION['id_user'])){
 					</div>
 				</div>
 				<div class="page-inner mt--5">
-					<form method="POST" action="function/vivid_vision.php">
+					<form method="POST" action="function/vivid_vision.php" enctype="multipart/form-data">
 						<div class="row mt--2">
 							<div class="col-md-12">
 								<div class="container">
@@ -56,14 +57,15 @@ if(!isset($_SESSION['id_user'])){
 											<div class="row px-3 mt-1">
 												
 												<div class="col-md-12 text-center ">
-													<img src="assets/img/upload/logo/default_pic.png" class="logo-img mb-4" alt="">
-													<h1 class="fw-bold mb-5"><u><?= $_SESSION['company'] ?> Vivid Vision</u></h1>
+													<img id="imagePreview" src="assets/img/upload/logo/default_pic.png" class="logo-img pulse my-4" alt="">
+													<input hidden type="file" id="imageInput"  name="image" >
+													<h1 class="fw-bold mb-5 mt-4"><u><input type="text" name="company" placeholder="company name" value ="<?=  $_SESSION['company'] ?>"> Vivid Vision</u></h1>
 												</div>
 		
 												<!-- Status Field -->
 												<div class="col-md-4">
 													<div class="form-group form-group-default">
-														<label><span class="text-danger">*</span> Status: </label>
+														<label><span class="text-danger"></span> Status: </label>
 														<select name="status" id="status" class="form-control" required>
 															<option value="Live">Live</option>
 															<option value="Draft">Draft</option>
@@ -75,7 +77,7 @@ if(!isset($_SESSION['id_user'])){
 												<!-- Owner Field -->
 												<div class="col-md-4">
 													<div class="form-group form-group-default">
-														<label><span class="text-danger">*</span> Owner: </label>
+														<label><span class="text-danger"></span> Owner: </label>
 														<input  type="text" name="owner" id="owner" class="form-control" placeholder="Owner Name" required>
 													</div>
 												</div>
@@ -84,7 +86,7 @@ if(!isset($_SESSION['id_user'])){
 												<!-- Last Updated Field  -->
 												<div class="col-md-4">
 													<div class="form-group form-group-default">
-														<label><span class="text-danger">*</span> Last Updated: </label>
+														<label><span class="text-danger"></span> Last Updated: </label>
 														<input type="date" name="last_update" id="last_update" class="form-control" placeholder="" value ="<?= date('Y-m-d')?>" required>
 													</div>
 												</div>
@@ -93,29 +95,54 @@ if(!isset($_SESSION['id_user'])){
 												<div class="col-md-12">
 													<h1 class="text-center fw-bold mb-4"><u>Your Vivid Vision</u></h1>
 													<p>
-														<b>Vivid Vision Overview:</b> 
-														<textarea name="vivid_mission" id="vivid_mission" rows="4" cols="50"  class="form-control" placeholder="Write something about your vivid vision..."></textarea>
-														<input type="date" name="date_vivid_mission" id="date_vivid_mission" class="form-control mt-2" style="width:150px" value ="<?= date('Y-m-d')?>">.
+														<textarea name="vivid_mission" id="vivid_mission" rows="4" cols="50"  class="form-control" placeholder="Write something about your vivid vision..." required></textarea>
+														<input type="date" name="date_vivid_mission" id="date_vivid_mission" class="form-control mt-2" style="width:150px" value ="<?= date('Y-m-d')?>" required>.
 													</p>
 												</div>
 
 												<div class="col-md-12">
 													<p>
-														It's December 31st, <input type="date" name="date_accomp" id="date_accomp" value="<?= date('Y-m-d')?>">. We're ending the single best year of our company history, and the company is riding a major high. We have just...
+														It's December 31st, <input type="number" id="date_accomp" name="date_accomp" min="1900" max="2099" placeholder="YYYY" value="<?= date('Y')?>" required>. We're ending the single best year of our company history, and the company is riding a major high. We have just...
 													</p>
 													<div class="form-group form-group-default">
-														<label><span class="text-danger">*</span> Accomplishment 1: </label>
-														<textarea name="accom1" id="accom1" rows="4" cols="50" class="form-control" placeholder="Write something about your accomplishment..."></textarea>
+														<label><span class="text-danger"></span> Accomplishment 1: </label>
+														<textarea name="accom1" id="accom1" rows="4" cols="50" class="form-control" placeholder="Write something about your accomplishment..." required></textarea>
 													</div>
 													<div class="form-group form-group-default">
-														<label><span class="text-danger">*</span> Accomplishment 2: </label>
+														<label><span class="text-danger"></span> Accomplishment 2: </label>
 														<textarea name="accom2" id="accom2" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
 													</div>
 													<div class="form-group form-group-default">
-														<label><span class="text-danger">*</span> Accomplishment 3: </label>
+														<label><span class="text-danger"></span> Accomplishment 3: </label>
 														<textarea name="accom3" id="accom3" rows="4" cols="50"  class="form-control" placeholder="Write something about your accomplishment..."></textarea>
 													</div>
 												</div>
+
+												<div class="col-md-12 mt-4">
+													<h4 class="fw-bold">WHO WE ARE</h4>
+													<p>
+													At <input type="text" name="wwa1" placeholder="company name" value ="<?=  $_SESSION['company'] ?>" required>,
+													we are a  <input type="text" name="wwa2" class="mt-2" placeholder="write something..."> 
+													company for <input type="text" name="wwa3" class="mt-2"  placeholder="write something...">.
+													We work with <input type="text" name="wwa4" class="mt-2"  placeholder="write something...">
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<h4 class="fw-bold">OUR MISSION</h4>
+													<p>
+													Our BHAG (Big Hairy Audacious Goal) is 
+													<textarea name="mission" id="mission" rows="4" cols="50"  class="form-control" placeholder="Explain your goal/mission..." required></textarea>
+													</p>
+												</div>
+
+												<div class="col-md-12 mt-4">
+													<h4 class="fw-bold">WHAT WE DO</h4>
+													<p>
+													<textarea name="wwd" id="wwd" rows="4" cols="50"  class="form-control" placeholder="Explain your core products / pillars..." required></textarea>
+													</p>
+												</div>
+
 												<div class="col-md-12 mt-5">
 													<div class="btn-group">
 														<button class="btn btn-primary"><i class="fa fa-save"></i> Save this Version</button>

@@ -1,13 +1,29 @@
 <?php
+    session_start();
+    if(!isset($_SESSION['id_user'])){
+        header('location: login.php');
+    }
+
     require_once '../libraries/tcpdf/tcpdf.php';
     class Pdf extends TCPDF
     { function __construct() { parent::__construct(); }}
 
-    $status = '<div style="color:#fff;background-color:#6861CE">PENDING</div> ';
+    include '../Class/Db.php'; 
+    include '../Class/Vivid_vision.php';  
+   
+    $database = new Db();
+    $db = $database->connect();
+    $vivid_vision = new Vivid_vision($db);
+
+   
+    $id = $_GET['id'];
+    $row = $vivid_vision->get($id);
+    if(!isset($row['status']) || $id == ''){ 
+        header('location: ../index.php'); 
+    } 
+    
 
 
-
-    $name = 'John Rey';
     // create new PDF document
     $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -25,36 +41,47 @@
     // $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
     $content = '
-    <h2  align="center"><u>Vivid Vision</u></h2>
+    <h2 align="center"><u>'.$row['company'].' Vivid Vision</u></h2>
 
-    Status: <br>
-    Owner: <br>
-    Last Updated: <br>
+    <table>
+        <tr>
+            <th width="85px">Status:</th>
+            <th width="120px"><b>'.$row['status'].'</b></th>
+        </tr>
+        <tr>
+            <th width="85px">Owner:</th>
+            <th width="120px"><b>'.$row['owner'].'</b></th>
+        </tr>
+         <tr>
+            <th width="85px">Last Updated:</th>
+            <th width="120px"><b>'.date("F j, Y",strtotime($row['last_update'])).'</b></th>
+        </tr>
+    </table>
 
     <h2  align="center"><u>Your Vivid Vision</u></h2>
-    <p>Vivid Vision Overview: The following is our Vivid Vision. Creating this vision brings the future into the present, so we have clarity on what we are creating right now and can always take the most strategic and direct steps to make it a reality. This is a detailed overview of what our business will look like, feel like, and act like 3 years from now by {DATE}.</p>
 
-    <p>Its December 31st, {YEAR}. Were ending the single best year of our company history, and the company is riding a major high. We have just…</p>
+    <p>'.$row['vivid_mission'].' <span><b><i>'.date("F j, Y",strtotime($row['date_vivid_mission'])).'</i></b></span> </p>
+
+    <p>Its December 31st, <b>'.$row['date_accomp'].'</b>. Were ending the single best year of our company history, and the company is riding a major high. We have just…</p>
 
     <ul>
-        <li>{Accomplishment 1}  ← {Long Text Box}</li>
-        <li>{Accomplishment 2}  ← {Long Text Box}</li>
-        <li>{Accomplishment 3}  ← {Long Text Box}</li>
+        <li>'.$row['accom1'].'</li>
+        <li>'.$row['accom2'].'</li>
+        <li>'.$row['accom3'].'</li>
     </ul>
     <br>
 
     <h4>WHO WE ARE</h4>
-    <p>At {COMPANY}, we are a  {Text Box}______________ company for {Text Box} ___________. We work with ← {Text Box}________________.</p>
+    <p>At <b>'.$row['wwa1'].'</b>, we are a  <b>'.$row['wwa2'].'</b> company for <b>'.$row['wwa3'].'</b>. We work with <b>'.$row['wwa4'].'</b>.</p>
     <br>
 
     <h4>OUR MISSION</h4>
-    Our BHAG (Big Hairy Audacious Goal) is {Explain your goal/mission}
+    Our BHAG (Big Hairy Audacious Goal) is <b>'.$row['mission'].'</b>
 
-    <p>{Paragraph Text Box}</p>
     <br>
 
     <h4>WHAT WE DO</h4>
-    {Explain your core products / pillars}
+    '.$row['wwd'].'
     ';
     // set some text to print
     // $html = <<<EOD
