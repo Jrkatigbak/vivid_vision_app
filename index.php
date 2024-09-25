@@ -138,9 +138,7 @@ if(!isset($_SESSION['id_user'])){
 						<nav class="pull-left">
 							<ul class="nav">
 								<li class="nav-item">
-									<a class="nav-link" href="#">
-										Copyright © 2024 Vivid Vision App
-									</a>
+									Copyright © 2024 Vivid Vision App
 								</li>
 							</ul>
 						</nav>

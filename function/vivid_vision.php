@@ -24,14 +24,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         'accom3' =>  htmlspecialchars(strip_tags($_POST['accom3']))
     ];
 
-    if ($vivid_vision->save($form_data)) {
-        $msg = "'Vivid Vision was saved successfully!','','success'";
-    } else {
-        $msg = "'Something went wrong!','','error'";
+    $result = $vivid_vision->save($form_data);
+    if ($result['status']) {
+        header("Location: pdf.php?id=".$result['id']);
+        return false;
     }
 
 }
 
-$_SESSION['flash_message'] = $msg;
-header("Location: ../index.php");
 ?>

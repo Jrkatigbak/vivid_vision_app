@@ -24,7 +24,10 @@ class Vivid_vision {
         $stmt->bindParam(':accom3', $form_data['accom3']);
 
         if ($stmt->execute()) {
-            return true;
+            return [
+                'status' => true,
+                'id' => $this->conn->lastInsertId()
+            ];
         }
 
         return false;
