@@ -41,24 +41,7 @@
     // $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
 
     $content = '
-    <h2 align="center"><u>'.$row['company'].' Vivid Vision</u></h2>
-
-    <table>
-        <tr>
-            <th width="85px">Status:</th>
-            <th width="120px"><b>'.$row['status'].'</b></th>
-        </tr>
-        <tr>
-            <th width="85px">Owner:</th>
-            <th width="120px"><b>'.$row['owner'].'</b></th>
-        </tr>
-         <tr>
-            <th width="85px">Last Updated:</th>
-            <th width="120px"><b>'.date("F j, Y",strtotime($row['last_update'])).'</b></th>
-        </tr>
-    </table>
-
-    <h2  align="center"><u>Your Vivid Vision</u></h2>
+    <h2  align="center">Vivid Vision Overview</h2>
 
     <p>'.$row['vivid_mission'].' <span><b><i>'.date("F j, Y",strtotime($row['date_vivid_mission'])).'</i></b></span> </p>
 
