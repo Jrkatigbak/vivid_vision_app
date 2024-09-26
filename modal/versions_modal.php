@@ -35,7 +35,8 @@
                                             <td>'.$row['created_at'].'</td>
                                             <td>
                                                 <div class="btn-group">
-                                                    <a href="index.php?id='.$row['id_vivid'].'" type="submit" class="btn btn-primary btn-sm"><i class="far fa-eye"></i> View</a>
+                                                    <a href="index.php?id='.$row['id_vivid'].'" type="submit" class="btn btn-primary btn-sm"><i class="far fa-eye"></i> Edit</a>
+                                                    <a href="function/pdf.php?id='.$row['id_vivid'].'" type="submit" class="btn btn-warning btn-sm"><i class="far fa-eye"></i> PDF</a>
                                                     <button type="button" data-id="'.$row['id'].'" class="btnDelete btn btn-danger btn-sm"><i class="fa fa-trash"></i> </button>
                                                 </div>
                                             </td>
