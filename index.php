@@ -141,7 +141,7 @@ if(isset($_GET['id'])){
 												</div>
 
 												<div class="col-md-12 mt-4">
-													<h4 class="fw-bold">WHO WE ARE</h4>
+													<h3 class="fw-bold">WHO WE ARE</h3>
 													<p>
 													At <input type="text" name="wwa1" placeholder="company name" 
 													value ="<?php echo isset($row['wwa1']) ? $row['wwa1'] : '' ?>"  required>,
@@ -152,7 +152,7 @@ if(isset($_GET['id'])){
 												</div>
 
 												<div class="col-md-12 mt-4">
-													<h4 class="fw-bold">OUR MISSION</h4>
+													<h3 class="fw-bold">OUR MISSION</h3>
 													<p>
 													Our BHAG (Big Hairy Audacious Goal) is 
 													<textarea name="mission" id="mission" rows="4" cols="50"  class="form-control" placeholder="Explain your goal/mission..." required><?php echo isset($row['mission']) ? $row['mission'] : '' ?></textarea>
@@ -160,7 +160,7 @@ if(isset($_GET['id'])){
 												</div>
 
 												<div class="col-md-12 mt-4">
-													<h4 class="fw-bold">WHAT WE DO</h4>
+													<h3 class="fw-bold">WHAT WE DO</h3>
 													<p>
 													<textarea name="wwd" id="wwd" rows="4" cols="50"  class="form-control" placeholder="Explain your core products / pillars..." required><?php echo isset($row['wwd']) ? $row['wwd'] : '' ?></textarea>
 													</p>
@@ -184,7 +184,7 @@ if(isset($_GET['id'])){
 												</div>
 
 												<div class="col-md-12 mt-4">
-													<h4 class="fw-bold">THE DETAILS</h4>
+													<h3 class="fw-bold">THE DETAILS</h3>
 													<p>
 													We are based in 
 													<input type="text" name="vv25" class="mt-2" value ="<?php echo isset($row['vv25']) ? $row['vv25'] : '' ?>" placeholder="write something...">
@@ -215,7 +215,7 @@ if(isset($_GET['id'])){
 												</div>
 
 												<div class="col-md-12 mt-4">
-													<h4 class="fw-bold">OUR CORE VALUES</h4>
+													<h3 class="fw-bold">OUR CORE VALUES</h3>
 													<p>
 													We live by our Core Value of 
 													<input type="text" name="vv211" class="mt-2" value ="<?php echo isset($row['vv211']) ? $row['vv211'] : '' ?>" placeholder="write something...">
@@ -271,7 +271,7 @@ if(isset($_GET['id'])){
 
 												<div class="col-md-12 mt-4">
 													<br>
-													<h4 class="fw-bold">OUR ELITE TEAM</h4>
+													<h3 class="fw-bold">OUR ELITE TEAM</h3>
 													<p>
 													Our team is 
 													<input type="text" name="vv38" class="mt-2" value ="<?php echo isset($row['vv38']) ? $row['vv38'] : '' ?>" placeholder="tell something about your team...">
