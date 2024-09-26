@@ -1,46 +1,78 @@
 <?php
-    session_start();
-    if(!isset($_SESSION['id_user'])){
-        header('location: login.php');
+// Include FPDF library
+require_once('../libraries/tcpdf/tcpdf.php');
+include '../Class/Db.php'; 
+include '../Class/Vivid_vision.php';  
+
+$database = new Db();
+$db = $database->connect();
+$vivid_vision = new Vivid_vision($db);
+
+
+$id = $_GET['id'];
+$row = $vivid_vision->get($id);
+if(!isset($row['status']) || $id == ''){ 
+    header('location: ../index.php'); 
+} 
+
+
+
+class PDF extends TCPDF {
+
+
+    // Custom Header function
+    function Header() {
+        // Insert a logo or image as the header (Image function)
+        $logo = 'default_pic.png';
+        if(isset($row['logo'])){
+            $logo = $row['logo'];
+        }
+        $this->Image('../assets/img/upload/logo/'.$logo, 90, 6, 30); // (file, x, y, width)
+
+        // Set font for header
+        $this->SetFont('', 'B', 12);
+
+        // Move to the right
+        $this->Cell(80);
+
+        // Title
+        // $this->Cell(30, 10, 'Title of PDF', 0, 1, 'C');
+
+        // Line break after header
+        $this->Ln(20);
     }
 
-    require_once '../libraries/tcpdf/tcpdf.php';
-    class Pdf extends TCPDF
-    { function __construct() { parent::__construct(); }}
+    // Custom Footer function
+    function Footer() {
+        // Position at 1.5 cm from bottom
+        $this->SetY(-15);
 
-    include '../Class/Db.php'; 
-    include '../Class/Vivid_vision.php';  
-   
-    $database = new Db();
-    $db = $database->connect();
-    $vivid_vision = new Vivid_vision($db);
+        // Set font
+        $this->SetFont('', 'I', 8);
 
-   
-    $id = $_GET['id'];
-    $row = $vivid_vision->get($id);
-    if(!isset($row['status']) || $id == ''){ 
-        header('location: ../index.php'); 
-    } 
+        // Page number
+        $this->Cell(0, 10, 'Page ' . $this->PageNo(), 0, 0, 'C');
+    }
+}
 
+// Create PDF instance
+$pdf = new PDF();
 
+// Set font for the content
+$pdf->SetFont('', '', 12);
 
-    // create new PDF document
-    $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
+$pdf->SetTopMargin(44);  // Adjust the top margin as needed (30mm in this example)
 
-    // set document information
-    $pdf->SetTitle('Vivid Vision Outline');
+// Sample text content
+// $pdf->Cell(0, 70, '<h2  align="center">Vivid Vision Overview</h2>', 0, 1);
 
-    $pdf->setPrintHeader(false);
-    $pdf->setPrintFooter(false);
+// $pdf->AddPage();
 
-    // Add a page
-    // This method has several options, check the source code documentation for more information.
-    $pdf->AddPage();
+// $pdf->Cell(0, 70, 'This is sample content below the header image.', 0, 1);
 
-    // set text shadow effect
-    // $pdf->setTextShadow(array('enabled'=>true, 'depth_w'=>0.2, 'depth_h'=>0.2, 'color'=>array(196,196,196), 'opacity'=>1, 'blend_mode'=>'Normal'));
+$pdf->AddPage();
 
-    $content = '
+$html = '
     <h2  align="center">Vivid Vision Overview</h2>
 
     <p>'.$row['vivid_mission'].' <span><b><i>'.date("F j, Y",strtotime($row['date_vivid_mission'])).'</i></b></span> </p>
@@ -65,8 +97,14 @@
 
     <h4>WHAT WE DO</h4>
     '.$row['wwd'].'
+';
 
-    <p>Our bread and butter is <b>'.$row['vv21'].'</b>.  
+$pdf->writeHTML($html, true, false, true, false, '');
+
+$pdf->AddPage();
+
+$html = '
+   <p>Our bread and butter is <b>'.$row['vv21'].'</b>.  
     This is our <b>'.$row['vv22'].'</b> program designed for <b>'.$row['vv23'].'</b>. 
     We are #1 in the world for what we do in this program because <b>'.$row['vv24'].'</b> 
     </p>
@@ -110,43 +148,36 @@
         We are the best in the world at 
         <b>'.$row['vv217'].'</b>, and these Core Values help us drive consistent, repeatable, and scalable results.
     </p>
+';
 
-    <p>Our company is now doing  $<b>'.$row['vv31'].'</b> per month in revenue, and were set to chase some even more massive growth within 
-    <b>'.$row['vv32'].'</b> in the coming year ahead.</p>
+$pdf->writeHTML($html, true, false, true, false, '');
 
-    <p>We are on a mission to  <b>'.$row['vv33'].'</b> and are well on our way!</p>
+$pdf->AddPage();
 
-    <br>
-    <h4>The Core Values we live and breathe every day:</h4>
-    <ul>
-        <li><b>'.$row['vv34'].'</b><li>
-        <li><b>'.$row['vv35'].'</b><li>
-        <li><b>'.$row['vv36'].'</b><li>
-        <li><b>'.$row['vv37'].'</b><li>
-    </ul>
+$html = '
 
-    <br>
-    <h4>OUR ELITE TEAM</h4>
-    <p>Our team is <b>'.$row['vv38'].'</b> We move fast, are bold, have crazy high standards, are hungry and addicted to growth and learning, and enjoy what we do. We thrive on growth, learning, and love the opportunity to serve this mission together.</p>
-    ';
-    // set some text to print
-    // $html = <<<EOD
-    //     $content
-    // EOD;
+<p>Our company is now doing  $<b>'.number_format($row['vv31'],2).'</b> per month in revenue, and were set to chase some even more massive growth within 
+<b>'.$row['vv32'].'</b> in the coming year ahead.</p>
 
-    // Print text using writeHTMLCell()
-    // $pdf->Write(0, $txt, '', 0, 'C', true, 0, false, false, 0);
-    $pdf->writeHTMLCell(0, 0, '', '', $content, 0, 1, 0, true, '', true);
+<p>We are on a mission to  <b>'.$row['vv33'].'</b> and are well on our way!</p>
 
-    // ---------------------------------------------------------
+<br>
+<h4>The Core Values we live and breathe every day:</h4>
+<ul>
+    <li><b>'.$row['vv34'].'</b><li>
+    <li><b>'.$row['vv35'].'</b><li>
+    <li><b>'.$row['vv36'].'</b><li>
+    <li><b>'.$row['vv37'].'</b><li>
+</ul>
 
-    // Close and output PDF document
-    // This method has several options, check the source code documentation for more information.
-    $pdf->Output('example_001.pdf', 'I');
+<br>
+<h4>OUR ELITE TEAM</h4>
+<p>Our team is <b>'.$row['vv38'].'</b> We move fast, are bold, have crazy high standards, are hungry and addicted to growth and learning, and enjoy what we do. We thrive on growth, learning, and love the opportunity to serve this mission together.</p>
+';
 
-    //============================================================+
-    // END OF FILE
-    //============================================================+
-    
+$pdf->writeHTML($html, true, false, true, false, '');
 
+
+// Output the PDF to browser
+$pdf->Output();
 ?>
